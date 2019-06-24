@@ -6,7 +6,7 @@ export const FETCH_FAILURE = 'FETCH_FAILURE';
 
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const ADD_FRIEND = "ADD_FRIEND";
 export const ADD_FRIEND_FAILURE = "ADD_FRIEND_FAILURE";
 
@@ -14,9 +14,7 @@ export const ADD_FRIEND_FAILURE = "ADD_FRIEND_FAILURE";
 export const login = creds => dispatch => {
     console.log(creds);
 
-    // Login stuff goes here! LOGIN STUFF GOES HERE!
     dispatch({ type: LOGIN_START });
-
     return axios
       .post("http://localhost:5000/api/login", creds)
       .then(res => {
@@ -32,13 +30,17 @@ export const login = creds => dispatch => {
   export const fetchFriends = () => dispatch => {
     dispatch({ type: FETCHING });
     axios
-      .get("http://localhost:5000/api/friends", {
-        headers: { Authorization: localStorage.getItem("token") }
-      })
+      .get("https://tom-my-top-nine.herokuapp.com/friends"
+    //   ,{
+    //     headers: { Authorization: localStorage.getItem("token") }
+    //   }
+      )
       .then(res => {
+        console.log(res)
         dispatch({ type: FETCH_SUCCESS, payload: res.data });
       })
       .catch(err => {
+          console.log(err)
         dispatch({ type: FETCH_FAILURE, payload: err });
       });
   };
