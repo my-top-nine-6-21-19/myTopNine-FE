@@ -98,10 +98,19 @@ export class AddFriend extends Component {
       phone: this.state.phone,
       address: this.state.address,
       description: this.state.description,
-      user_id: this.props.currentUser
+      users_id: this.props.currentUser
     };
     this.props.addFriend(newFriend);
+    this.setState({
+      name: "",
+      rank: "",
+      email: "",
+      phone: "",
+      address: "",
+      description: ""
+    })
   };
+
 }
 
 const mapStateToProps = state => ({
