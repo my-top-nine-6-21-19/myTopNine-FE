@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import FriendsList from "./FriendsList";
 
 const PrivateRoute = ({ component: Component, token, ...rest }) => {
   return (
