@@ -46,15 +46,12 @@ export const login = creds => dispatch => {
 export const fetchFriends = () => dispatch => {
   dispatch({ type: FETCHING });
   axios
-    .get(
-      "https://tom-my-top-nine.herokuapp.com/friends"
-      //   ,{
-      //     headers: { Authorization: localStorage.getItem("token") }
-      //   }
-    )
+    .get("https://tom-my-top-nine.herokuapp.com/users/1", {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
     .then(res => {
       console.log(res);
-      dispatch({ type: FETCH_SUCCESS, payload: res.data });
+      dispatch({ type: FETCH_SUCCESS, payload: res.data.friends });
     })
     .catch(err => {
       console.log(err);
