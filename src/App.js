@@ -40,7 +40,7 @@ class App extends React.Component {
         <PrivateRoute exact path="/" component={FriendsList} />
         <Route path="/add-friend" render={props => <AddFriend {...props} />} />
         {/* <Route path="/friend-form/${id}" /> */}
-        <Route path="/:friendId" render={props => <FriendPage {...props} />} />
+        {/* <Route path="/:friendId" render={props => <FriendPage {...props} />} /> */}
       </div>
     );
   }
