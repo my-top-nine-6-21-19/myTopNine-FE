@@ -1,15 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { login } from "../actions";
 
 export class Login extends Component {
   state = {
     username: "",
-    password: "",
-    loggedIn: null
+    password: ""
   };
   render() {
     return (
       <div className="login-container">
-        <h1 className="login-title">Login to My Top Nine</h1>
+        <h1 className="login-title">Login</h1>
         <form>
           <label>Username</label>
           <input
@@ -27,7 +28,7 @@ export class Login extends Component {
             placeholder="Enter password"
           />
           <button onClick={this.login} type="submit">
-            Login
+            {this.props.loggingIn ? <p>Loading...</p> : "Login"}
           </button>
         </form>
       </div>
@@ -39,10 +40,17 @@ export class Login extends Component {
     });
   };
 
+  // login = e => {
+  //   e.preventDefault();
+  //   localStorage.setItem("User", this.state.username);
+  //   window.location.reload();
+  // };
+
   login = e => {
     e.preventDefault();
-    localStorage.setItem("User", this.state.username);
-    window.location.reload();
+    this.props
+      .login(this.state)
+      .then(() => this.props.history.push("/protected"));
   };
 
   logout = e => {
@@ -52,4 +60,12 @@ export class Login extends Component {
   };
 }
 
-export default Login;
+const mapStateToProps = ({ error, loggingIn }) => ({
+  error,
+  loggingIn
+});
+
+export default connect(
+  mapStateToProps,
+  { login }
+)(Login);

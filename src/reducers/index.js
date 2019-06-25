@@ -54,7 +54,7 @@ function reducer(state = initialState, action) {
         ...state,
         loggingIn: false,
         error: false,
-        token: localStorage.getItem("token")
+        token: action.payload
       };
 
     case ADD_FRIEND:

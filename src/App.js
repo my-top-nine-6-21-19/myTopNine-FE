@@ -4,6 +4,8 @@ import "./App.css";
 import { Route, NavLink, withRouter } from "react-router-dom";
 import AddFriend from "./components/AddFriend";
 import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
+
 function App() {
   return (
     <div className="App">
@@ -30,8 +32,13 @@ function App() {
           <li className="logout-btn">Log Out</li>
         </div>
       </ul>
-      <Route exact path="/" render={props => <FriendsList {...props} />} />
+      {/* <Route exact path="/" render={props => <FriendsList {...props} />} /> */}
       <Route exact path="/login" render={props => <Login {...props} />} />
+      <PrivateRoute
+        exact
+        path="/"
+        render={props => <FriendsList {...props} />}
+      />
       <Route path="/add-friend" render={props => <AddFriend {...props} />} />
       <Route path="/friend-form/${id}" />
     </div>
