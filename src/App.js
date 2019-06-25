@@ -34,11 +34,7 @@ function App() {
       </ul>
       {/* <Route exact path="/" render={props => <FriendsList {...props} />} /> */}
       <Route exact path="/login" render={props => <Login {...props} />} />
-      <PrivateRoute
-        exact
-        path="/"
-        render={props => <FriendsList {...props} />}
-      />
+      <PrivateRoute exact path="/" component={FriendsList} />
       <Route path="/add-friend" render={props => <AddFriend {...props} />} />
       <Route path="/friend-form/${id}" />
     </div>
@@ -46,3 +42,10 @@ function App() {
 }
 
 export default withRouter(App);
+
+{
+  /* <PrivateRoute
+        exact
+        path="/"
+        render={props => <FriendsList {...props} />} */
+}

@@ -3,12 +3,16 @@ import { Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import FriendsList from "./FriendsList";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, token, ...rest }) => {
   return (
     <Route
       {...rest}
       render={props =>
-        props.token ? <Component {...props} /> : <Redirect to="/login" />
+        localStorage.getItem("token") ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/login" />
+        )
       }
     />
   );
@@ -26,3 +30,5 @@ export default withRouter(
     {}
   )(PrivateRoute)
 );
+
+// props.token;
