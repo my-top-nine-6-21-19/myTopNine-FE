@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export class Login extends Component {
-    state = {
-        username: '',
-        password: '',
-        loggedIn: null
-    }
-    render() {
-        return (
-            <div className="login-container">
+  state = {
+    username: "",
+    password: "",
+    loggedIn: null
+  };
+  render() {
+    return (
+      <div className="login-container">
         <h1 className="login-title">Login to My Top Nine</h1>
         <form>
           <label>Username</label>
@@ -29,36 +29,27 @@ export class Login extends Component {
           <button onClick={this.login} type="submit">
             Login
           </button>
-          <button onClick={this.logout} type="submit">
-            Logout
-          </button>
         </form>
       </div>
+    );
+  }
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
-        )
-    }
-    handleChange = e => {
-        this.setState({
-          [e.target.name]: e.target.value
-        });
-      };
+  login = e => {
+    e.preventDefault();
+    localStorage.setItem("User", this.state.username);
+    window.location.reload();
+  };
 
-      login = e => {
-        e.preventDefault();
-        localStorage.setItem("User", this.state.username);
-        window.location.reload();
-      };
-
-      logout = e => {
-        e.preventDefault();
-        localStorage.removeItem("User");
-        window.location.reload();
-      };
+  logout = e => {
+    e.preventDefault();
+    localStorage.removeItem("User");
+    window.location.reload();
+  };
 }
 
-
-
-export default Login
-
-
-
+export default Login;
