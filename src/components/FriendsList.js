@@ -7,18 +7,18 @@ import { fetchFriends, addFriend } from "../actions";
 
 class FriendsList extends React.Component {
   state = {
-   friends: []
+    friends: []
   };
-
-
+  // console.log()
   render() {
     return (
       <div className="friends-wrapper">
+        <h1>Top 9 List</h1>
         {this.props.loading ? (
-        //   <div className="loader">
-        //     {/* <Loader type="Grid" color="#fb553b" height={200} width={200} /> */}
-        //   </div>
-        <p>Loading...</p>
+          //   <div className="loader">
+          //     {/* <Loader type="Grid" color="#fb553b" height={200} width={200} /> */}
+          //   </div>
+          <p>Loading...</p>
         ) : (
           <>
             {this.props.friends.map(friend => (
@@ -29,10 +29,9 @@ class FriendsList extends React.Component {
                   <h3>{friend.contact}</h3>
                 </div>
               </div>
-            //   <Link path={/uniqueid} ><FriendCard /></Link>
-            //   FRIEND CARD COMPONENT
+              //   <Link path={/uniqueid} ><FriendCard /></Link>
+              //   FRIEND CARD COMPONENT
             ))}
-
           </>
         )}
       </div>
@@ -40,23 +39,19 @@ class FriendsList extends React.Component {
   }
   componentDidMount() {
     this.props.fetchFriends();
-    console.log(this.props.friends)
-
+    console.log(this.props.friends);
   }
-
-
 }
 
 const mapStateToProps = state => ({
-    friends: state.friends,
-    loading: state.loading
-  });
+  friends: state.friends,
+  loading: state.loading
+});
 
-  export default connect(
-    mapStateToProps,
-    {
-      fetchFriends,
-      addFriend
-    }
-  )(FriendsList);
-
+export default connect(
+  mapStateToProps,
+  {
+    fetchFriends,
+    addFriend
+  }
+)(FriendsList);
