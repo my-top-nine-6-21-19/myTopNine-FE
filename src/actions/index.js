@@ -32,21 +32,21 @@ export const login = creds => dispatch => {
   return axios
     .post("https://tom-my-top-nine.herokuapp.com/auth/login", creds)
     .then(res => {
-      console.log(res.data.token);
+      console.log(res.data);
       localStorage.setItem("token", res.data.token);
-      dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
+      localStorage.setItem("currentUser", res.data.id);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
-
     .catch(err => {
       console.log(err);
       dispatch({ type: LOGIN_FAILURE, payload: true });
     });
 };
 
-export const fetchFriends = () => dispatch => {
+export const fetchFriends = id => dispatch => {
   dispatch({ type: FETCHING });
   axios
-    .get("https://tom-my-top-nine.herokuapp.com/users/1", {
+    .get(`https://tom-my-top-nine.herokuapp.com/users/${id}`, {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
@@ -60,15 +60,15 @@ export const fetchFriends = () => dispatch => {
 };
 export const addFriend = newFriend => dispatch => {
   axios
-    .post("", newFriend, {
+    .post("https://tom-my-top-nine.herokuapp.com/friends", newFriend, {
       headers: { Authorization: localStorage.getItem("token") }
     })
     .then(res => {
       console.log("new friends array", res.data);
-      dispatch({ type: ADD_FRIEND, payload: res.data });
+      dispatch({ type: ADD_FRIEND, payload: res.data.friends });
     })
     .catch(err => {
-      console.log(err);
+      console.log(err, newFriend);
       dispatch({ type: ADD_FRIEND_FAILURE, payload: err.response });
     });
 };

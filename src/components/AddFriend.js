@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import {addFriend} from '../actions';
 
 export class AddFriend extends Component {
   state = {
     name: "",
     rank: "",
-    contact: "",
+    email: "",
+    phone: "",
+    address: "",
     description: ""
   };
 
@@ -25,6 +29,15 @@ export class AddFriend extends Component {
           <div className="add-input">
             <input
               placeholder="Your friend's rank"
+              name="rank"
+              value={this.state.rank}
+              className="login-input"
+              onChange={this.handleChanges}
+            />
+          </div>
+          <div className="add-input">
+            <input
+              placeholder="Your friend's email"
               name="email"
               value={this.state.email}
               className="login-input"
@@ -33,9 +46,18 @@ export class AddFriend extends Component {
           </div>
           <div className="add-input">
             <input
-              placeholder="Your friend's contact info"
-              name="contact"
-              value={this.state.contact}
+              placeholder="Your friend's Telphone Number#"
+              name="phone"
+              value={this.state.phone}
+              className="login-input"
+              onChange={this.handleChanges}
+            />
+          </div>
+          <div className="add-input">
+            <input
+              placeholder="Your friend's Address"
+              name="address"
+              value={this.state.address}
               className="login-input"
               onChange={this.handleChanges}
             />
@@ -72,11 +94,22 @@ export class AddFriend extends Component {
     const newFriend = {
       name: this.state.name,
       rank: this.state.rank,
-      contact: this.state.contact,
-      description: this.state.description
+      email: this.state.email,
+      phone: this.state.phone,
+      address: this.state.address,
+      description: this.state.description,
+      user_id: this.props.currentUser
     };
     this.props.addFriend(newFriend);
   };
 }
 
-export default AddFriend;
+const mapStateToProps = state => ({
+  currentUser: state.currentUser
+});
+
+
+export default connect(
+  mapStateToProps,
+ {addFriend}
+)(AddFriend);

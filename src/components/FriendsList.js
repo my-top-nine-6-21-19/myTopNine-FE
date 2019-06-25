@@ -42,8 +42,8 @@ class FriendsList extends React.Component {
     );
   }
   componentDidMount() {
-    this.props.fetchFriends();
-    console.log(this.props.friends);
+    this.props.fetchFriends(this.props.currentUser);
+
   }
 }
 
@@ -51,13 +51,14 @@ const shortid = require("shortid");
 
 const mapStateToProps = state => ({
   friends: state.friends,
-  loading: state.loading
+  loading: state.loading,
+  currentUser: state.currentUser
 });
 
 export default connect(
   mapStateToProps,
-  {
+ {
     fetchFriends,
-    addFriend
+    addFriend,
   }
 )(FriendsList);

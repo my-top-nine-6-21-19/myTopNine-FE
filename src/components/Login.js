@@ -25,7 +25,7 @@ export class Login extends Component {
             name="password"
             type="password"
             onChange={this.handleChange}
-            placeholder="Enter password"
+
           />
           <button onClick={this.login} type="submit">
             {this.props.loggingIn ? <p>Loading...</p> : "Login"}
