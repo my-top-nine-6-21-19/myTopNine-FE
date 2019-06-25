@@ -23,18 +23,14 @@ class FriendsList extends React.Component {
         ) : (
           <>
             {this.props.friends.map(friend => (
+
               <div className="card" key={shortid.generate()}>
-                {/* <div className="card-body">
-                  <h1>{friend.name}</h1>
-                  <h3>{friend.description}</h3>
-                  <h3>{friend.contact}</h3>
-                </div> */}
-                <Link to={`/${friend.id}`} style={{ textDecoration: "none" }}>
+                 <Link to={`/${friend.id}`} style={{ textDecoration: "none" }}>
                   <FriendCard friend={friend} />
                 </Link>
+
               </div>
-              //   <Link path={/uniqueid} ><FriendCard /></Link>
-              //   FRIEND CARD COMPONENT
+
             ))}
           </>
         )}
@@ -62,3 +58,20 @@ export default connect(
     addFriend,
   }
 )(FriendsList);
+
+
+
+
+
+
+{/* <Link to={{
+  pathname: `/${friend.id}`,
+  state: {
+    friend: friend
+  }
+}} style={{ textDecoration: "none" }}>
+                  <FriendCard friend={friend} />
+                </Link> */}
+
+
+

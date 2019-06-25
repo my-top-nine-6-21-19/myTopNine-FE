@@ -63,7 +63,7 @@ function reducer(state = initialState, action) {
     case ADD_FRIEND:
       return {
         ...state,
-        friends: action.payload
+        friends: [...state.friends, action.payload]
       };
     case ADD_FRIEND_FAILURE:
       return {
