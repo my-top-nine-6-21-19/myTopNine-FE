@@ -40,12 +40,6 @@ export class Login extends Component {
     });
   };
 
-  // login = e => {
-  //   e.preventDefault();
-  //   localStorage.setItem("User", this.state.username);
-  //   window.location.reload();
-  // };
-
   login = e => {
     e.preventDefault();
     this.props.login(this.state).then(() => this.props.history.push("/"));

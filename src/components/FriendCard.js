@@ -4,12 +4,13 @@ export class FriendCard extends Component {
   render() {
     return (
       <div>
-        <p>Friend</p>
         <div className="card">
           <div className="card-body">
-            <h1>{friend.name}</h1>
-            <h3>{friend.contact}</h3>
+            <h1>{this.props.friend.name}</h1>
+            <h3>{this.props.friend.description}</h3>
+            <h3>{this.props.friend.contact}</h3>
           </div>
+          <h4 className="card-rank">{this.props.friend.rank}</h4>
         </div>
       </div>
     );
