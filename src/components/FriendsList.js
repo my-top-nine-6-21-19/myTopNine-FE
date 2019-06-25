@@ -22,7 +22,7 @@ class FriendsList extends React.Component {
         ) : (
           <>
             {this.props.friends.map(friend => (
-              <div className="card">
+              <div className="card" key={shortid.generate()}>
                 <div className="card-body">
                   <h1>{friend.name}</h1>
                   <h3>{friend.description}</h3>
@@ -42,6 +42,8 @@ class FriendsList extends React.Component {
     console.log(this.props.friends);
   }
 }
+
+const shortid = require("shortid");
 
 const mapStateToProps = state => ({
   friends: state.friends,
