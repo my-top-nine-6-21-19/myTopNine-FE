@@ -15,7 +15,7 @@ class FriendsList extends React.Component {
     return (
       <div className="friends-wrapper">
         <h1>Top 9 List</h1>
-        {this.props.loading ? (
+        {this.props.loading || !this.state.friends ? (
           //   <div className="loader">
           //     {/* <Loader type="Grid" color="#fb553b" height={200} width={200} /> */}
           //   </div>
@@ -25,7 +25,7 @@ class FriendsList extends React.Component {
             {this.props.friends.map(friend => (
 
               <div className="card" key={shortid.generate()}>
-                 <Link to={`/${friend.id}`} style={{ textDecoration: "none" }}>
+                 <Link to={`/friend/${friend.id}`} style={{ textDecoration: "none" }}>
                   <FriendCard friend={friend} />
                 </Link>
 
@@ -63,15 +63,6 @@ export default connect(
 
 
 
-
-{/* <Link to={{
-  pathname: `/${friend.id}`,
-  state: {
-    friend: friend
-  }
-}} style={{ textDecoration: "none" }}>
-                  <FriendCard friend={friend} />
-                </Link> */}
 
 
 

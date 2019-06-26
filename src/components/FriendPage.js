@@ -10,7 +10,8 @@ export class FriendPage extends Component {
   };
   componentDidMount() {
     // this.setState({...this.state.friends, id: this.props.match.params.friendId})
-    // console.log("STATE HERE", this.state.id)
+    // console.log("STATE HERE", this.state.friend)
+    console.log(this.props.match.params.friendId)
     this.fetchFriend(this.props.match.params.friendId);
   }
 
@@ -44,10 +45,14 @@ export class FriendPage extends Component {
     } else {
       return (
         <div>
+          {this.state.friend.name}
+          {/* <FriendCard friend={this.state.friend} /> */}
 
-          <FriendCard friend={this.state.friend} />
-          <button onClick={()=>this.deleteFriend(this.state.id)}>Delete Friend</button>
 
+
+          <div>
+          <button onClick={()=>this.deleteFriend(this.props.match.params.friendId)}>Delete Friend</button>
+          </div>
         </div>
       );
 

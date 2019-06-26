@@ -109,6 +109,8 @@ export class AddFriend extends Component {
       address: "",
       description: ""
     })
+    this.props.history.push("/")
+    // window.location.reload();
   };
 
 }
