@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { login } from "../actions";
+import { login, register } from "../actions";
 
 export class Login extends Component {
   state = {
@@ -9,6 +9,7 @@ export class Login extends Component {
   };
   render() {
     return (
+      <div>
       <div className="login-container">
         <h1 className="login-title">Login</h1>
         <form>
@@ -25,6 +26,7 @@ export class Login extends Component {
             name="password"
             type="password"
             onChange={this.handleChange}
+            placeholder="Enter your password"
 
           />
           <button onClick={this.login} type="submit">
@@ -32,8 +34,35 @@ export class Login extends Component {
           </button>
         </form>
       </div>
+
+      <div className="signup-container">
+      <h1 className="login-title">Signup</h1>
+      <form>
+        <label>Username</label>
+        <input
+          name="username"
+          onChange={this.handleChange}
+          type="text"
+          placeholder="Enter your username"
+        />
+
+        <label>Password</label>
+        <input
+          name="password"
+          type="password"
+          onChange={this.handleChange}
+          placeholder="Enter your password"
+
+        />
+        <button onClick={this.register} type="submit">
+          {this.props.registering ? <p>Loading...</p> : "Sign Up"}
+        </button>
+      </form>
+    </div>
+    </div>
     );
   }
+
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -48,7 +77,13 @@ export class Login extends Component {
   logout = e => {
     e.preventDefault();
     localStorage.removeItem("User");
-    window.location.reload();
+    this.props.history.push("/")
+    // window.location.reload();
+
+  };
+  register = e => {
+    e.preventDefault();
+    this.props.register(this.state).then(() => this.props.history.push("/"));
   };
 }
 
@@ -59,5 +94,5 @@ const mapStateToProps = ({ error, loggingIn }) => ({
 
 export default connect(
   mapStateToProps,
-  { login }
+  { login, register }
 )(Login);
