@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login, register } from "../actions";
+import SignInSide from "./SideSignIn";
 
 export class Login extends Component {
   state = {
@@ -8,69 +9,62 @@ export class Login extends Component {
     password: ""
   };
   render() {
-
     return (
-
-    localStorage.getItem("token") ? (
-
-      "You Are Already Logged In"
-
-    ) : (
-
+      // <SignInSide />
+      localStorage.getItem("token") ? (
+        "You Are Already Logged In"
+      ) : (
         <div>
-        <div className="login-container">
-          <h1 className="login-title">Login</h1>
-          <form>
-            <label>Username</label>
-            <input
-              name="username"
-              onChange={this.handleChange}
-              type="text"
-              placeholder="Enter your username"
-            />
+          <div className="login-container">
+            <h1 className="login-title">Login</h1>
+            <form>
+              <label>Username</label>
+              <input
+                name="username"
+                onChange={this.handleChange}
+                type="text"
+                placeholder="Enter your username"
+              />
 
-            <label>Password</label>
-            <input
-              name="password"
-              type="password"
-              onChange={this.handleChange}
-              placeholder="Enter your password"
+              <label>Password</label>
+              <input
+                name="password"
+                type="password"
+                onChange={this.handleChange}
+                placeholder="Enter your password"
+              />
+              <button onClick={this.login} type="submit">
+                {this.props.loggingIn ? <p>Loading...</p> : "Login"}
+              </button>
+            </form>
+          </div>
 
-            />
-            <button onClick={this.login} type="submit">
-              {this.props.loggingIn ? <p>Loading...</p> : "Login"}
-            </button>
-          </form>
+          <div className="signup-container">
+            <h1 className="login-title">Signup</h1>
+            <form>
+              <label>Username</label>
+              <input
+                name="username"
+                onChange={this.handleChange}
+                type="text"
+                placeholder="Enter your username"
+              />
+
+              <label>Password</label>
+              <input
+                name="password"
+                type="password"
+                onChange={this.handleChange}
+                placeholder="Enter your password"
+              />
+              <button onClick={this.register} type="submit">
+                {this.props.registering ? <p>Loading...</p> : "Sign Up"}
+              </button>
+            </form>
+          </div>
         </div>
-
-        <div className="signup-container">
-        <h1 className="login-title">Signup</h1>
-        <form>
-          <label>Username</label>
-          <input
-            name="username"
-            onChange={this.handleChange}
-            type="text"
-            placeholder="Enter your username"
-          />
-
-          <label>Password</label>
-          <input
-            name="password"
-            type="password"
-            onChange={this.handleChange}
-            placeholder="Enter your password"
-
-          />
-          <button onClick={this.register} type="submit">
-            {this.props.registering ? <p>Loading...</p> : "Sign Up"}
-          </button>
-        </form>
-      </div>
-      </div>
       )
-
-    )
+    );
   }
 
   handleChange = e => {
@@ -87,9 +81,8 @@ export class Login extends Component {
   logout = e => {
     e.preventDefault();
     localStorage.removeItem("User");
-    this.props.history.push("/")
+    this.props.history.push("/");
     // window.location.reload();
-
   };
   register = e => {
     e.preventDefault();

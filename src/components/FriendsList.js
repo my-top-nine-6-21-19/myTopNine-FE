@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchFriends, addFriend } from "../actions";
 import FriendCard from "./FriendCard";
+import _ from "underscore";
 
 class FriendsList extends React.Component {
   state = {
@@ -15,31 +16,41 @@ class FriendsList extends React.Component {
     return (
       <div className="friends-wrapper">
         <h1>Top 9 List</h1>
-        {this.props.loading || !this.state.friends ? (
+        {this.props.loading || !this.state.friends || !this.props.friends ? (
           //   <div className="loader">
           //     {/* <Loader type="Grid" color="#fb553b" height={200} width={200} /> */}
           //   </div>
           <p>Loading...</p>
         ) : (
           <>
-            {this.props.friends.map(friend => (
-
-              <div className="card" key={shortid.generate()}>
-                 <Link to={`/friend/${friend.id}`} style={{ textDecoration: "none" }}>
-                  <FriendCard friend={friend} />
-                </Link>
-
-              </div>
-
-            ))}
+            {this.props.friends
+              .filter(friend => {
+                return friend.rank > 0 && friend.rank < 10;
+              })
+              .map(friend => {
+                return (
+                  <div className="map-card" key={shortid.generate()}>
+                    <Link
+                      to={`/friend/${friend.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <FriendCard friend={friend} />
+                    </Link>
+                  </div>
+                );
+              })}
           </>
         )}
       </div>
     );
   }
+
   componentDidMount() {
     this.props.fetchFriends(this.props.currentUser);
-
+    // const filteredFriends = this.props.friends.filter(
+    //   friend => friend.rank === 1
+    // );
+    // console.log("filtered:", filteredFriends);
   }
 }
 
@@ -53,16 +64,14 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
- {
+  {
     fetchFriends,
-    addFriend,
+    addFriend
   }
 )(FriendsList);
 
-
-
-
-
-
-
-
+{
+  /* .sort(function(a, b) {
+  return b.name - a.name;
+}) */
+}

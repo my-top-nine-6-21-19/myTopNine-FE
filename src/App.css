@@ -1,10 +1,15 @@
 .App {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
   text-align: center;
   margin-top: 70px;
+}
+
+.friends-wrapper {
+  width: 100%;
 }
 
 /* NAV BAR STYLING  */
@@ -184,4 +189,35 @@ input {
   cursor: pointer;
   background-color: white;
   color: rgb(70, 153, 179);
+}
+
+.friend-page-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FRIEND CARD STYLING  */
+
+.map-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  width: 60%;
+  align-self: center;
+  height: 250px;
+  background-color: white;
+  /* max-width: 450px;
+  min-width: 220px; */
+  margin: 50px 1%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
