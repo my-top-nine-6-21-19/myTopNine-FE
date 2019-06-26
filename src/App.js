@@ -38,9 +38,9 @@ class App extends React.Component {
         </ul>
         <Route exact path="/login" render={props => <Login {...props} />} />
         <PrivateRoute exact path="/" component={FriendsList} />
-        <Route path="/add-friend" render={props => <AddFriend {...props} />} />
+        <Route exact path="/add-friend" render={props => <AddFriend {...props} />} />
         {/* <Route path="/friend-form/${id}" /> */}
-        <Route path="/:friendId" render={props => <FriendPage {...props} />} />
+        <Route exact path="/:friendId" render={props => <FriendPage {...props} />} />
       </div>
     );
   }
