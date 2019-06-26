@@ -11,10 +11,10 @@ export class FriendPage extends Component {
   componentDidMount() {
     console.log(this.props.match)
     const id = this.props.match.params.friendId;
-    this.fetchMovie(id);
+    this.fetchFriend(id);
   }
 
-  fetchMovie = id => {
+  fetchFriend = id => {
     axios
       .get(`https://tom-my-top-nine.herokuapp.com/friends/${id}`)
       .then(response => {
