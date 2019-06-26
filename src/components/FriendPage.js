@@ -6,14 +6,14 @@ import { updateFriend, deleteFriend } from '../actions'
 export class FriendPage extends Component {
   state = {
     friend: null,
-    id: this.props.match.params.friendId
+    id: null
   };
-
   componentDidMount() {
-
-    this.fetchFriend(this.state.id);
-
+    // this.setState({...this.state.friends, id: this.props.match.params.friendId})
+    // console.log("STATE HERE", this.state.id)
+    this.fetchFriend(this.props.match.params.friendId);
   }
+
   deleteFriend = id => {
 
     this.props.deleteFriend(id);
@@ -21,16 +21,17 @@ export class FriendPage extends Component {
     this.props.history.push('/')
 }
 
-
   fetchFriend = id => {
     axios
-      .get(`https://tom-my-top-nine.herokuapp.com/friends/${id}`)
+      .get(`https://tom-my-top-nine.herokuapp.com/friends/${id}`, {
+        headers: { Authorization: localStorage.getItem("token") }
+      })
       .then(response => {
         console.log(response)
         this.setState(() => ({ friend: response.data }));
       })
       .catch(error => {
-        console.error(error);
+        console.error("OH NO AN ERROR HAPPENED", error);
       });
   };
   render() {

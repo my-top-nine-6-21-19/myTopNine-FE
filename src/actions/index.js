@@ -101,7 +101,9 @@ export const updateFriend = friend => dispatch => {
 export const deleteFriend = id => dispatch => {
   dispatch({ type: DELETE_START });
   axios
-    .delete(`https://tom-my-top-nine.herokuapp.com/friend/${id}`)
+    .delete(`https://tom-my-top-nine.herokuapp.com/friend/${id}`, {
+      headers: { Authorization: localStorage.getItem("token") }
+    })
     .then(res => {
       dispatch({ type: DELETE_SUCCESS, payload: res.data });
     })
