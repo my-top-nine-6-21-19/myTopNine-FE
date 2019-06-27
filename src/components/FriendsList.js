@@ -27,6 +27,9 @@ class FriendsList extends React.Component {
               .filter(friend => {
                 return friend.rank > 0 && friend.rank < 10;
               })
+              .sort(function(a, b) {
+                return a.rank - b.rank;
+              })
               .map(friend => {
                 return (
                   <div className="map-card" key={shortid.generate()}>
@@ -69,9 +72,3 @@ export default connect(
     addFriend
   }
 )(FriendsList);
-
-{
-  /* .sort(function(a, b) {
-  return b.name - a.name;
-}) */
-}

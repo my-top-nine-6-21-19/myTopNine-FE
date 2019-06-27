@@ -81,7 +81,11 @@
 }
 
 /* FORM STYLING  */
-
+.logged-in-message {
+  margin-top: 100px;
+  font-size: 4rem;
+  font-weight: bold;
+}
 .form-container {
   width: 100%;
   display: flex;

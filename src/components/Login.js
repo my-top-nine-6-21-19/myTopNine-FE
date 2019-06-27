@@ -12,7 +12,7 @@ export class Login extends Component {
     return (
       // <SignInSide />
       localStorage.getItem("token") ? (
-        "You Are Already Logged In"
+        <p className="logged-in-message">You Are Already Logged In</p>
       ) : (
         <div>
           <div className="login-container">
