@@ -9,7 +9,8 @@ import _ from "underscore";
 
 class FriendsList extends React.Component {
   state = {
-    friends: []
+    friends: [],
+    ranked: false
   };
   // console.log()
   render() {
@@ -21,12 +22,31 @@ class FriendsList extends React.Component {
           //     {/* <Loader type="Grid" color="#fb553b" height={200} width={200} /> */}
           //   </div>
           <p>Loading...</p>
-        ) : (
+        ) : this.state.ranked ? (
           <>
             {this.props.friends
               .filter(friend => {
                 return friend.rank > 0 && friend.rank < 10;
               })
+              .sort(function(a, b) {
+                return a.rank - b.rank;
+              })
+              .map(friend => {
+                return (
+                  <div className="map-card" key={shortid.generate()}>
+                    <Link
+                      to={`/friend/${friend.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <FriendCard friend={friend} />
+                    </Link>
+                  </div>
+                );
+              })}
+          </>
+        ) : (
+          <>
+            {this.props.friends
               .sort(function(a, b) {
                 return a.rank - b.rank;
               })
