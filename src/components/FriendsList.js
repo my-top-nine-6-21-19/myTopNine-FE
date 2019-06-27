@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-// import Loader from "react-loader-spinner";
+import Loader from "react-loader-spinner";
 // import { Form, Input } from "reactstrap";
 import { Link } from "react-router-dom";
 import { fetchFriends, addFriend } from "../actions";
@@ -10,19 +10,24 @@ import _ from "underscore";
 class FriendsList extends React.Component {
   state = {
     friends: [],
-    ranked: false
+    ranked: true
   };
   // console.log()
   render() {
     return (
       <div className="friends-wrapper">
         <h1>Top 9 List</h1>
+        <button
+          onClick={() => this.setState(() => ({ ranked: !this.state.ranked }))}
+        >
+          {this.state.ranked ? "All Friends" : "Top 9 Friends"}
+        </button>
         {this.props.loading || !this.state.friends || !this.props.friends ? (
-          //   <div className="loader">
-          //     {/* <Loader type="Grid" color="#fb553b" height={200} width={200} /> */}
-          //   </div>
-          <p>Loading...</p>
-        ) : this.state.ranked ? (
+          <div className="loader">
+            <Loader type="Rings" color="#somecolor" height={150} width={150} />
+          </div>
+        ) : // <p>Loading...</p>
+        this.state.ranked ? (
           <>
             {this.props.friends
               .filter(friend => {

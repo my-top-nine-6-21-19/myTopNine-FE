@@ -1,20 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login, register } from "../actions";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import SignInSide from "./SideSignIn";
 
 export class Login extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    showLog: true
   };
   render() {
     return (
-      // <SignInSide />
-      localStorage.getItem("token") ? (
-        <p className="logged-in-message">You Are Already Logged In</p>
-      ) : (
-        <div>
+      <div>
+        <h1>{this.state.showLog ? "Welcome Back!" : "Join Us Today!"}</h1>
+        <button
+          onClick={() =>
+            this.setState(() => ({ showLog: !this.state.showLog }))
+          }
+        >
+          {this.state.showLog ? "Sign Up Now" : "Log In"}
+        </button>
+
+        {this.state.showLog ? (
+          // <SignInSide />
+
           <div className="login-container">
             <h1 className="login-title">Login</h1>
             <form>
@@ -25,6 +36,28 @@ export class Login extends Component {
                 type="text"
                 placeholder="Enter your username"
               />
+              {/* <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
+                autoFocus
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              /> */}
 
               <label>Password</label>
               <input
@@ -33,14 +66,17 @@ export class Login extends Component {
                 onChange={this.handleChange}
                 placeholder="Enter your password"
               />
-              <button onClick={this.login} type="submit">
+              {/* <button onClick={this.login} type="submit">
                 {this.props.loggingIn ? <p>Loading...</p> : "Login"}
-              </button>
+              </button> */}
+              <Button variant="outlined" color="inherit" onClick={this.login}>
+                {this.props.loggingIn ? <p>Loading...</p> : "Login"}
+              </Button>
             </form>
           </div>
-
+        ) : (
           <div className="signup-container">
-            <h1 className="login-title">Signup</h1>
+            <h1 className="signup-title">Signup</h1>
             <form>
               <label>Username</label>
               <input
@@ -57,13 +93,20 @@ export class Login extends Component {
                 onChange={this.handleChange}
                 placeholder="Enter your password"
               />
-              <button onClick={this.register} type="submit">
+              {/* <button onClick={this.register} type="submit">
                 {this.props.registering ? <p>Loading...</p> : "Sign Up"}
-              </button>
+              </button> */}
+              <Button
+                variant="outlined"
+                color="inherit"
+                onClick={this.register}
+              >
+                {this.props.registering ? <p>Loading...</p> : "Sign Up"}
+              </Button>
             </form>
           </div>
-        </div>
-      )
+        )}
+      </div>
     );
   }
 

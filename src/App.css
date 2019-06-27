@@ -80,6 +80,10 @@
   color: darkblue;
 }
 
+.hidden {
+  display: none;
+}
+
 /* FORM STYLING  */
 .logged-in-message {
   margin-top: 100px;
@@ -194,8 +198,65 @@ input {
   background-color: white;
   color: rgb(70, 153, 179);
 }
+/* Signup FORM STYLING  */
 
-.friend-page-container {
+.signup-container {
+  margin: 0 auto;
+}
+.signup-container h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+.signup-container form {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.signup-container label,
+input {
+  display: block;
+  width: 100%;
+}
+
+.signup-container label {
+  margin-bottom: 5px;
+  height: 22px;
+}
+
+.signup-container input {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #777;
+}
+
+.signup-container input.error {
+  border-color: red;
+}
+
+.signup-container .input-feedback {
+  color: rgb(235, 54, 54);
+  margin-top: -15px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.signup-container button {
+  padding: 10px 15px;
+  background-color: rgb(70, 153, 179);
+  color: white;
+  background-color: 250ms;
+  border: 2px solid black;
+}
+
+.signup-container button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(70, 153, 179);
+}
+
+.signup-page-container {
   margin-top: 50px;
   display: flex;
   flex-direction: column;

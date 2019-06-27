@@ -6,11 +6,17 @@ import AddFriend from "./components/AddFriend";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import FriendPage from "./components/FriendPage";
+import NavBar from "./components/NavBar";
+
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import TypoGraphy from "@material-ui/core/Typography";
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
+        {/* <NavBar /> */}
         <ul className="navbar">
           <div className="nav-links">
             <li>
@@ -23,7 +29,9 @@ class App extends React.Component {
                 Add New Friend!
               </NavLink>
             </li>
-            <li>
+            <li
+              className={localStorage.getItem("token") ? "hidden" : "login-btn"}
+            >
               <NavLink to="/login" activeClassName="activeNavButton">
                 Log In
               </NavLink>
@@ -31,7 +39,12 @@ class App extends React.Component {
           </div>
 
           <div className="logout">
-            <li className="logout-btn" onClick={this.logout}>
+            <li
+              className={
+                localStorage.getItem("token") ? "logout-btn" : "hidden"
+              }
+              onClick={this.logout}
+            >
               Log Out
             </li>
           </div>
@@ -53,5 +66,3 @@ class App extends React.Component {
 }
 
 export default withRouter(App);
-
-
