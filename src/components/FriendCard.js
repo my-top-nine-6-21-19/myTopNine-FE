@@ -7,10 +7,8 @@ export class FriendCard extends Component {
         <div className="card">
           <div className="card-body">
             <h1>{this.props.friend.name}</h1>
-            <h3>{this.props.friend.description}</h3>
-            <h3>{this.props.friend.contact}</h3>
+            <h4 className="card-rank">{this.props.friend.rank}</h4>
           </div>
-          <h4 className="card-rank">{this.props.friend.rank}</h4>
         </div>
       </div>
     );

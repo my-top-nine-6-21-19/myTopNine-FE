@@ -1,10 +1,15 @@
 .App {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
   text-align: center;
   margin-top: 70px;
+}
+
+.friends-wrapper {
+  width: 100%;
 }
 
 /* NAV BAR STYLING  */
@@ -42,20 +47,24 @@
   padding: 24px;
   height: 20px;
 }
-.navbar > .logout > li > a {
-  color: black;
-  font-weight: bold;
-  background-color: white;
+
+/* Login Nav Button */
+.navbar > .logout-login > li > a {
+  color: rgb(255, 255, 255);
+  background-color: rgba(27, 63, 226, 0.671);
   text-decoration: none;
-  padding: 24px;
-  height: 20px;
+  padding: 15px 25px;
+  border-radius: 10px;
 }
 
+/* Active Nav Buttons */
 .navbar > .nav-links > li > a.activeNavButton {
   background-color: darkblue;
   color: white;
 }
-.logout {
+
+/* Logout Button */
+.logout-login {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -76,7 +85,11 @@
 }
 
 /* FORM STYLING  */
-
+.log-in-message {
+  margin-top: 100px;
+  font-size: 4rem;
+  font-weight: bold;
+}
 .form-container {
   width: 100%;
   display: flex;
@@ -184,4 +197,54 @@ input {
   cursor: pointer;
   background-color: white;
   color: rgb(70, 153, 179);
+}
+
+.friend-page-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FRIEND CARD STYLING  */
+
+.map-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  width: 60%;
+  align-self: center;
+  height: 250px;
+  background-color: white;
+  /* max-width: 450px;
+  min-width: 220px; */
+  margin: 50px 1%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Friends List Styling */
+
+.username-greeting {
+  border: 1px solid rgba(11, 226, 11, 0.158);
+  padding: 20px;
+  max-width: 200px;
+  margin: auto;
+  border-radius: 20px;
+  margin-top: 43px;
+  background: rgba(0, 128, 0, 0.66);
+  color: white;
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+
+.username-greeting p {
+  margin: 0px;
 }

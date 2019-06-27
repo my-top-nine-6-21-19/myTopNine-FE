@@ -45,13 +45,13 @@ export const login = creds => dispatch => {
   return axios
     .post("https://tom-my-top-nine.herokuapp.com/auth/login", creds)
     .then(res => {
-      console.log(res.data);
+      console.log("LOGIN SUCCESS", res.data);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("currentUser", res.data.id);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
+      console.log("LOGIN FAILURE", err);
       dispatch({ type: LOGIN_FAILURE, payload: true });
     });
 };
@@ -85,14 +85,18 @@ export const addFriend = newFriend => dispatch => {
       dispatch({ type: ADD_FRIEND_FAILURE, payload: err.response });
     });
 };
-export const updateFriend = friend => dispatch => {
+export const updateFriend = updatedFriend => dispatch => {
   dispatch({ type: UPDATE_START });
   axios
-    .put(`https://tom-my-top-nine.herokuapp.com/${friend.id}`, friend, {
-      headers: { Authorization: localStorage.getItem("token") }
-    })
+    .put(
+      `https://tom-my-top-nine.herokuapp.com/friends/${updatedFriend.id}`,
+      updatedFriend,
+      {
+        headers: { Authorization: localStorage.getItem("token") }
+      }
+    )
     .then(res => {
-      console.log(res)
+      console.log(res);
       dispatch({ type: UPDATE_SUCCESS, payload: res.data });
     })
     .catch(err => dispatch({ type: UPDATE_FAILURE, payload: err }));
@@ -116,7 +120,7 @@ export const register = creds => dispatch => {
   return axios
     .post("https://tom-my-top-nine.herokuapp.com/auth/register", creds)
     .then(res => {
-      console.log(res.data, 'SUCCESFUL REGISTER');
+      console.log(res.data, "SUCCESFUL REGISTER");
       localStorage.setItem("token", res.data.password);
       localStorage.setItem("currentUser", res.data.id);
       dispatch({ type: REGISTER_SUCCESS, payload: res.data });

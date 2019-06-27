@@ -16,7 +16,6 @@ import {
   REGISTER_START,
   REGISTER_SUCCESS,
   REGISTER_FAILURE
-
 } from "../actions";
 
 const initialState = {
@@ -25,9 +24,10 @@ const initialState = {
   error: null,
   loading: false,
   token: localStorage.getItem("token"),
-  currentUser: localStorage.getItem('currentUser'),
+  currentUser: localStorage.getItem("currentUser"),
   isUpdating: false,
-  isDeleting: false
+  isDeleting: false,
+  loginMessage: ''
 };
 
 function reducer(state = initialState, action) {
@@ -68,69 +68,70 @@ function reducer(state = initialState, action) {
         loggingIn: false,
         error: false,
         token: action.payload.token,
-        currentUser: action.payload.id
+        currentUser: action.payload.id,
+        loginMessage: action.payload.message
       };
 
     case ADD_FRIEND:
       return {
         ...state,
-        friends: [...state.friends, action.payload]
+        friends: [...state.friends, ...action.payload]
       };
     case ADD_FRIEND_FAILURE:
       return {
         ...state,
         error: action.payload
       };
-      case DELETE_START:
-        return {
-          ...state,
-          isDeleting: true
-        }
-      case DELETE_SUCCESS:
-        return {
-          ...state,
-          friends: action.payload,
-          isDeleting: false
-        }
-      case DELETE_FAILURE:
-          return {
-            ...state,
-            isDeleting: false,
-            error: action.payload
-          }
-      case UPDATE_START:
-        return {
-          ...state,
-          isUpdating: true
-        }
-      case UPDATE_SUCCESS:
-        return {
-          ...state,
-          isUpdating: false,
-          friends: action.payload
-        }
-      case UPDATE_FAILURE:
-        return {
-          ...state,
-          isUpdating: false,
-          error: action.payload
-        }
-        case REGISTER_START:
-        return {
-          ...state,
-          loggingIn: true
-        }
-      case REGISTER_SUCCESS:
-        return {
-          ...state,
-          loggingIn: false
-        }
-      case REGISTER_FAILURE:
-        return {
-          ...state,
-          loggingIn: false,
-          error: action.payload
-        }
+    case DELETE_START:
+      return {
+        ...state,
+        isDeleting: true
+      };
+    case DELETE_SUCCESS:
+      return {
+        ...state,
+        friends: action.payload,
+        isDeleting: false
+      };
+    case DELETE_FAILURE:
+      return {
+        ...state,
+        isDeleting: false,
+        error: action.payload
+      };
+    case UPDATE_START:
+      return {
+        ...state,
+        isUpdating: true
+      };
+    case UPDATE_SUCCESS:
+      return {
+        ...state,
+        isUpdating: false,
+        friends: [...state.friends, action.payload]
+      };
+    case UPDATE_FAILURE:
+      return {
+        ...state,
+        isUpdating: false,
+        error: action.payload
+      };
+    case REGISTER_START:
+      return {
+        ...state,
+        loggingIn: true
+      };
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        loggingIn: false
+      };
+    case REGISTER_FAILURE:
+      return {
+        ...state,
+        loggingIn: false,
+        error: action.payload
+      };
 
     default:
       return state;
