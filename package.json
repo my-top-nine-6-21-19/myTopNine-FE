@@ -18,8 +18,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "save": "^2.4.0",
-    "shortid": "^2.2.14",
-    "underscore": "^1.9.1"
+    "shortid": "^2.2.14"
   },
   "scripts": {
     "start": "react-scripts start",

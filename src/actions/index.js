@@ -45,13 +45,13 @@ export const login = creds => dispatch => {
   return axios
     .post("https://tom-my-top-nine.herokuapp.com/auth/login", creds)
     .then(res => {
-      console.log(res.data);
+      console.log("LOGIN SUCCESS", res.data);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("currentUser", res.data.id);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      console.log(err);
+      console.log("LOGIN FAILURE", err);
       dispatch({ type: LOGIN_FAILURE, payload: true });
     });
 };

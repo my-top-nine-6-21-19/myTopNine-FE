@@ -26,7 +26,8 @@ const initialState = {
   token: localStorage.getItem("token"),
   currentUser: localStorage.getItem("currentUser"),
   isUpdating: false,
-  isDeleting: false
+  isDeleting: false,
+  loginMessage: ''
 };
 
 function reducer(state = initialState, action) {
@@ -67,7 +68,8 @@ function reducer(state = initialState, action) {
         loggingIn: false,
         error: false,
         token: action.payload.token,
-        currentUser: action.payload.id
+        currentUser: action.payload.id,
+        loginMessage: action.payload.message
       };
 
     case ADD_FRIEND:
