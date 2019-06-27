@@ -29,14 +29,15 @@ export class Login extends Component {
           <div className="login-container">
             <h1 className="login-title">Login</h1>
             <form>
-              <label>Username</label>
+              {/* <label>Username</label>
               <input
                 name="username"
                 onChange={this.handleChange}
                 type="text"
                 placeholder="Enter your username"
-              />
-              {/* <TextField
+              /> */}
+              <TextField
+                onChange={this.handleChange}
                 variant="outlined"
                 margin="normal"
                 required
@@ -48,6 +49,7 @@ export class Login extends Component {
                 autoFocus
               />
               <TextField
+                onChange={this.handleChange}
                 variant="outlined"
                 margin="normal"
                 required
@@ -57,15 +59,15 @@ export class Login extends Component {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              /> */}
+              />
 
-              <label>Password</label>
+              {/* <label>Password</label>
               <input
                 name="password"
                 type="password"
                 onChange={this.handleChange}
                 placeholder="Enter your password"
-              />
+              /> */}
               {/* <button onClick={this.login} type="submit">
                 {this.props.loggingIn ? <p>Loading...</p> : "Login"}
               </button> */}
