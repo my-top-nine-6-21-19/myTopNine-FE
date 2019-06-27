@@ -89,7 +89,8 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         friends: action.payload,
-        isDeleting: false
+        isDeleting: false,
+        error: null
       };
     case DELETE_FAILURE:
       return {
@@ -106,7 +107,8 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         isUpdating: false,
-        friends: [...state.friends, action.payload]
+        friends: [...state.friends, action.payload],
+        error: null
       };
     case UPDATE_FAILURE:
       return {
@@ -122,7 +124,8 @@ function reducer(state = initialState, action) {
     case REGISTER_SUCCESS:
       return {
         ...state,
-        loggingIn: false
+        loggingIn: false,
+        error: null
       };
     case REGISTER_FAILURE:
       return {

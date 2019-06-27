@@ -4,6 +4,7 @@ import { login, register } from "../actions";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import SignInSide from "./SideSignIn";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 export class Login extends Component {
   state = {
@@ -29,14 +30,15 @@ export class Login extends Component {
           <div className="login-container">
             <h1 className="login-title">Login</h1>
             <form>
-              {/* <label>Username</label>
+              <label>Username</label>
               <input
                 name="username"
                 onChange={this.handleChange}
                 type="text"
                 placeholder="Enter your username"
-              /> */}
-              <TextField
+              />
+
+              {/* <TextField
                 onChange={this.handleChange}
                 variant="outlined"
                 margin="normal"
@@ -59,15 +61,15 @@ export class Login extends Component {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
+              /> */}
 
-              {/* <label>Password</label>
+              <label>Password</label>
               <input
                 name="password"
                 type="password"
                 onChange={this.handleChange}
                 placeholder="Enter your password"
-              /> */}
+              />
               {/* <button onClick={this.login} type="submit">
                 {this.props.loggingIn ? <p>Loading...</p> : "Login"}
               </button> */}

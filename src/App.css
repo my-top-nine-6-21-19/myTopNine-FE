@@ -167,12 +167,12 @@ input {
   height: 22px;
 }
 
-.login-container input {
+/* .login-container input {
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 3px;
   border: 1px solid #777;
-}
+} */
 
 .login-container input.error {
   border-color: red;
@@ -185,19 +185,19 @@ input {
   margin-bottom: 20px;
 }
 
-.login-container button {
+/* .login-container button {
   padding: 10px 15px;
   background-color: rgb(70, 153, 179);
   color: white;
   background-color: 250ms;
   border: 2px solid black;
-}
+} */
 
-.login-container button:hover {
+/* .login-container button:hover {
   cursor: pointer;
   background-color: white;
   color: rgb(70, 153, 179);
-}
+} */
 /* Signup FORM STYLING  */
 
 .signup-container {
