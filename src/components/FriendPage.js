@@ -71,7 +71,7 @@ export class FriendPage extends Component {
   };
   render() {
     if (!this.state.friend) {
-      return <p>Loading...ggggggggg</p>;
+      return <p>Loading...</p>;
     } else if (!this.state.isUpdating) {
       return (
         <div className="friend-page-container">

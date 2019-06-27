@@ -1,7 +1,7 @@
 import React from "react";
 import FriendsList from "./components/FriendsList";
 import "./App.css";
-import { Route, NavLink, withRouter } from "react-router-dom";
+import { Route, NavLink, withRouter, Redirect } from "react-router-dom";
 import AddFriend from "./components/AddFriend";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
@@ -29,27 +29,40 @@ class App extends React.Component {
                 Add New Friend!
               </NavLink>
             </li>
-            <li
-              className={localStorage.getItem("token") ? "hidden" : "login-btn"}
-            >
-              <NavLink to="/login" activeClassName="activeNavButton">
-                Log In
-              </NavLink>
-            </li>
           </div>
 
-          <div className="logout">
-            <li
-              className={
-                localStorage.getItem("token") ? "logout-btn" : "hidden"
-              }
-              onClick={this.logout}
-            >
-              Log Out
-            </li>
-          </div>
+          {/* LOGIN/LOGOUT BUTTON LOGIC */}
+          {localStorage.getItem("token") &&
+          localStorage.getItem("currentUser") ? (
+            <div className="logout-login">
+              <li className="logout-btn" onClick={this.logout}>
+                Log Out
+              </li>
+            </div>
+          ) : (
+            <div className="logout-login">
+              <li>
+                <NavLink to="/login" activeClassName="activeNavButton">
+                  Login
+                </NavLink>
+              </li>
+            </div>
+          )}
         </ul>
-        <Route exact path="/login" render={props => <Login {...props} />} />
+
+        {/* ROUTES */}
+        <Route
+          exact
+          path="/login"
+          render={props =>
+            localStorage.getItem("token") &&
+            localStorage.getItem("currentUser") ? (
+              <Redirect to="/" />
+            ) : (
+              <Login {...props} />
+            )
+          }
+        />
         <PrivateRoute exact path="/" component={FriendsList} />
         <PrivateRoute exact path="/add-friend" component={AddFriend} />
         {/* <Route path="/friend-form/${id}" /> */}
@@ -57,6 +70,7 @@ class App extends React.Component {
       </div>
     );
   }
+
   logout = e => {
     e.preventDefault();
     localStorage.removeItem("token");

@@ -5,7 +5,6 @@ import Loader from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import { fetchFriends, addFriend } from "../actions";
 import FriendCard from "./FriendCard";
-import _ from "underscore";
 
 class FriendsList extends React.Component {
   state = {
@@ -22,6 +21,20 @@ class FriendsList extends React.Component {
         >
           {this.state.ranked ? "All Friends" : "Top 9 Friends"}
         </button>
+
+        {/* Login Success Message */}
+        {this.props.loginMessage ? (
+          <>
+            <div className="username-greeting">
+              <p>{this.props.loginMessage}</p>
+            </div>{" "}
+            <h1>Top 9 List</h1>{" "}
+          </>
+        ) : (
+          <h1>Top 9 List</h1>
+        )}
+
+        {/* Loading... or Render Friends List */}
         {this.props.loading || !this.state.friends || !this.props.friends ? (
           <div className="loader">
             <Loader type="Rings" color="#somecolor" height={150} width={150} />
@@ -75,10 +88,6 @@ class FriendsList extends React.Component {
 
   componentDidMount() {
     this.props.fetchFriends(this.props.currentUser);
-    // const filteredFriends = this.props.friends.filter(
-    //   friend => friend.rank === 1
-    // );
-    // console.log("filtered:", filteredFriends);
   }
 }
 
@@ -87,7 +96,8 @@ const shortid = require("shortid");
 const mapStateToProps = state => ({
   friends: state.friends,
   loading: state.loading,
-  currentUser: state.currentUser
+  currentUser: state.currentUser,
+  loginMessage: state.loginMessage
 });
 
 export default connect(
