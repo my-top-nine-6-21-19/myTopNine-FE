@@ -8,8 +8,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 export class Login extends Component {
   state = {
-    username: "",
-    password: "",
+    user: {
+      username: "",
+      password: ""
+    },
     showLog: true
   };
   render() {
@@ -115,14 +117,15 @@ export class Login extends Component {
   }
 
   handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
+    this.setState({ ...this.state, user: {
+      ...this.state.user, [e.target.name]: e.target.value
+    }
     });
   };
 
   login = e => {
     e.preventDefault();
-    this.props.login(this.state).then(() => this.props.history.push("/"));
+    this.props.login(this.state.user).then(() => this.props.history.push("/"));
   };
 
   logout = e => {
@@ -133,7 +136,8 @@ export class Login extends Component {
   };
   register = e => {
     e.preventDefault();
-    this.props.register(this.state).then(() => this.props.history.push("/"));
+    this.props.register(this.state.user).then(() => this.props.history.push("/"));
+    console.log("STATE IN REGISTER FUNCTION", this.state.user)
   };
 }
 

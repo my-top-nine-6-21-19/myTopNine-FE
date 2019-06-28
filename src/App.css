@@ -6,6 +6,7 @@
   height: 100vh;
   text-align: center;
   margin-top: 70px;
+
 }
 
 .friends-wrapper {
@@ -266,46 +267,48 @@ input {
   flex-direction: column;
 }
 
-/* FRIEND CARD STYLING  */
-
-.map-card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-body {
-  width: 60%;
-  align-self: center;
-  height: 250px;
-  background-color: white;
-  /* max-width: 450px;
-  min-width: 220px; */
-  margin: 50px 1%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
 /* Friends List Styling */
 
 .username-greeting {
   border: 1px solid rgba(11, 226, 11, 0.158);
-  padding: 20px;
+  padding: 10px;
   max-width: 200px;
-  margin: auto;
-  border-radius: 20px;
-  margin-top: 43px;
-  background: rgba(0, 128, 0, 0.66);
+  border-radius: 50px;
+
+  background: rgba(0, 190, 0, 0.904);
   color: white;
   font-weight: 200;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
+  justify-self: flex-end;
 }
 
 .username-greeting p {
   margin: 0px;
+}
+
+.friends-list-heading {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 900px;
+  margin: auto;
+}
+.friends-list-heading h1 {
+  color: #C0C0C0;
+}
+
+.friends-list-heading button {
+  height: 60px;
+}
+
+.list-of-friends {
+  max-width: 900px;
+  display: flex;
+  /* border: 1px solid black; */
+  /* background: rgba(255, 255, 255, 0.041); */
+  border-radius: 5px;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  padding: 5px;
 }

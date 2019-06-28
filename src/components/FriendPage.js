@@ -14,7 +14,8 @@ export class FriendPage extends Component {
       description: "",
       email: "",
       address: "",
-      id: ""
+      id: "",
+      picture: ""
     }
   };
   componentDidMount() {
@@ -81,6 +82,7 @@ export class FriendPage extends Component {
             <p>Description: {this.state.friend.description}</p>
             <p>Email: {this.state.friend.email}</p>
             <p>Address: {this.state.friend.address}</p>
+            <p>Picture: {this.state.friend.picture}</p>
           </div>
 
           <div>
@@ -101,7 +103,8 @@ export class FriendPage extends Component {
                     description: this.state.friend.description,
                     email: this.state.friend.email,
                     address: this.state.friend.address,
-                    id: this.state.friend.id
+                    id: this.state.friend.id,
+                    picture: this.state.friend.picture
                   }
                 }))
               }
@@ -152,6 +155,13 @@ export class FriendPage extends Component {
               type="text"
               value={this.state.updatedFriend.address}
             />
+            <label>Picture URL</label>
+            <input
+              name="picture"
+              onChange={this.handleChange}
+              type="text"
+              value={this.state.updatedFriend.picture}
+            />
           </form>
 
           <button onClick={() => this.updateFriend(this.state.updatedFriend)}>
@@ -162,7 +172,6 @@ export class FriendPage extends Component {
               this.setState(() => ({ isUpdating: !this.state.isUpdating }))
             }
           >
-            {" "}
             Cancel
           </button>
         </div>
