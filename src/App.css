@@ -229,7 +229,7 @@ input {
   height: 22px;
 }
 
-.signup-container input {
+/* .signup-container input {
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 3px;
@@ -245,7 +245,7 @@ input {
   margin-top: -15px;
   font-size: 14px;
   margin-bottom: 20px;
-}
+} */
 
 /* .signup-container button {
   padding: 10px 15px;

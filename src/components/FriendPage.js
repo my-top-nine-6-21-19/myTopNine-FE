@@ -21,6 +21,7 @@ export class FriendPage extends Component {
       description: "",
       email: "",
       address: "",
+      phone: "",
       id: "",
       picture: ""
     }
@@ -157,6 +158,7 @@ export class FriendPage extends Component {
               value={this.state.updatedFriend.name}
             /> */}
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChange}
               value={this.state.updatedFriend.name}
               variant="outlined"
@@ -177,6 +179,7 @@ export class FriendPage extends Component {
               value={this.state.updatedFriend.rank}
             /> */}
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChange}
               value={this.state.updatedFriend.rank}
               variant="outlined"
@@ -197,6 +200,7 @@ export class FriendPage extends Component {
               value={this.state.updatedFriend.description}
             /> */}
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChange}
               value={this.state.updatedFriend.description}
               variant="outlined"
@@ -217,6 +221,7 @@ export class FriendPage extends Component {
               value={this.state.updatedFriend.email}
             /> */}
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChange}
               value={this.state.updatedFriend.email}
               variant="outlined"
@@ -237,6 +242,7 @@ export class FriendPage extends Component {
               value={this.state.updatedFriend.address}
             /> */}
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChange}
               value={this.state.updatedFriend.address}
               variant="outlined"
@@ -257,6 +263,7 @@ export class FriendPage extends Component {
               value={this.state.updatedFriend.picture}
             /> */}
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChange}
               value={this.state.updatedFriend.picture}
               variant="outlined"
@@ -279,6 +286,7 @@ export class FriendPage extends Component {
           </form>
 
           <Button
+            style={{ width: 150, margin: 25 }}
             variant="outlined"
             color="inherit"
             onClick={() => this.updateFriend(this.state.updatedFriend)}
@@ -286,6 +294,7 @@ export class FriendPage extends Component {
             Save Changes
           </Button>
           <Button
+            style={{ width: 150, margin: 25 }}
             variant="outlined"
             color="inherit"
             onClick={() =>
