@@ -70,7 +70,7 @@
   flex-direction: row;
   justify-content: flex-end;
 } */
-/* 
+/*
 .logout-btn {
   align-content: center;
   text-align: center;
@@ -267,56 +267,7 @@ input {
   flex-direction: column;
 }
 
-/* Friends List Styling */
-
-/* .username-greeting {
-  border: 1px solid rgba(11, 226, 11, 0.158);
-  padding: 10px;
-  max-width: 200px;
-  border-radius: 50px;
-
-  background: rgba(0, 190, 0, 0.904);
-  color: white;
-  font-weight: 200;
-  font-size: 1.0rem;
-  justify-self: flex-end;
-}
-
-.username-greeting p {
-  margin: 0px;
-} */
-
-.username-greeting {
-  border: 1px solid rgba(11, 226, 11, 0.158);
-  padding: 10px;
-  max-width: 200px;
-  border-radius: 50px;
-
-  background: rgba(0, 190, 0, 0.904);
-  color: white;
-  font-weight: 200;
-  font-size: 1rem;
-  justify-self: flex-end;
-}
-
-.username-greeting p {
-  margin: 0px;
-}
-
-.friends-list-heading {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  max-width: 900px;
-  margin: auto;
-}
-.friends-list-heading h1 {
-  color: #c0c0c0;
-}
-
-.friends-list-heading button {
-  height: 60px;
-}
+/* FriendsList Component */
 
 .list-of-friends {
   max-width: 900px;
@@ -341,18 +292,74 @@ input {
   color: #212121;
 }
 
-.friends-list-heading button {
-  height: 60px;
+/* FriendPage Component */
+
+/* Details */
+
+.fp-container {
+  width: 100%;
 }
 
-.list-of-friends {
-  max-width: 900px;
-  display: flex;
-  /* border: 1px solid black; */
-  /* background: rgba(255, 255, 255, 0.041); */
+.fp-details-view {
+  width: 70%;
+  margin:  2rem auto;
+  border: 15px solid black;
   border-radius: 5px;
-  flex-wrap: wrap;
-  margin: auto;
+  -webkit-box-shadow: 10px 10px 19px -10px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 19px -10px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 19px -10px rgba(0, 0, 0, 0.829);
+}
+
+.fp-details-heading {
+  display: flex;
+  padding: 50px;
   justify-content: center;
-  padding: 5px;
+  align-items: center;
+}
+
+.fp-details-heading img {
+  max-width: 300px;
+  max-height: 300px;
+  border: 4px solid black;
+  border-radius: 30px;
+  margin: 30px;
+}
+
+.fp-heading-right h1 {
+  font-size: 5rem;
+  margin-right: 50px;
+
+}
+
+.fp-heading-right {
+ display: flex;
+ align-items: center;
+}
+
+.fp-details-body {
+  display: flex;
+  width: 80%;
+  margin: 50px auto;
+}
+.fp-details-body span {
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.fp-details-body p {
+  font-size: 1.2rem;
+}
+
+.fp-details-left {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 50%;
+}
+
+.fp-details-right {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 50%;
 }

@@ -50,7 +50,7 @@ const useStyles = makeStyles({
   },
   listRank: {
     // color: '#C0C0C0',
-    color: "white",
+    color: "black",
     fontWeight: 800,
     fontSize: "2rem",
     margin: "15px 0"
