@@ -16,8 +16,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <NavBar /> */}
-        <ul className="navbar">
+        <NavBar logout={this.logout} />
+        {/* <ul className="navbar">
           <div className="nav-links">
             <li>
               <NavLink exact to="/" activeClassName="activeNavButton">
@@ -29,10 +29,10 @@ class App extends React.Component {
                 Add New Friend!
               </NavLink>
             </li>
-          </div>
+          </div> */}
 
-          {/* LOGIN/LOGOUT BUTTON LOGIC */}
-          {localStorage.getItem("token") &&
+        {/* LOGIN/LOGOUT BUTTON LOGIC */}
+        {/* {localStorage.getItem("token") &&
           localStorage.getItem("currentUser") ? (
             <div className="logout-login">
               <li className="logout-btn" onClick={this.logout}>
@@ -48,7 +48,7 @@ class App extends React.Component {
               </li>
             </div>
           )}
-        </ul>
+        </ul> */}
 
         {/* ROUTES */}
         <Route
@@ -65,7 +65,6 @@ class App extends React.Component {
         />
         <PrivateRoute exact path="/" component={FriendsList} />
         <PrivateRoute exact path="/add-friend" component={AddFriend} />
-        {/* <Route path="/friend-form/${id}" /> */}
         <PrivateRoute exact path="/friend/:friendId" component={FriendPage} />
       </div>
     );

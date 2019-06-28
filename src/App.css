@@ -6,11 +6,11 @@
   height: 100vh;
   text-align: center;
   margin-top: 70px;
-
 }
 
 .friends-wrapper {
   width: 100%;
+  margin-top: 50px;
 }
 
 /* NAV BAR STYLING  */
@@ -59,18 +59,18 @@
 }
 
 /* Active Nav Buttons */
-.navbar > .nav-links > li > a.activeNavButton {
+/* .navbar > .nav-links > li > a.activeNavButton {
   background-color: darkblue;
   color: white;
-}
+} */
 
 /* Logout Button */
-.logout-login {
+/* .logout-login {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-}
-
+} */
+/* 
 .logout-btn {
   align-content: center;
   text-align: center;
@@ -83,7 +83,7 @@
   cursor: pointer;
   background-color: white;
   color: darkblue;
-}
+} */
 
 .hidden {
   display: none;
@@ -95,7 +95,7 @@
   font-size: 4rem;
   font-weight: bold;
 }
-.form-container {
+/* .form-container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -117,7 +117,7 @@
 .add-input {
   display: flex;
   justify-content: center;
-}
+} */
 .login-input {
   width: 50%;
   height: 56px;
@@ -131,10 +131,10 @@
   box-shadow: 0px 4px 20px 0px transparent;
 }
 
-.btn-login {
+/* .btn-login {
   display: block;
   padding: 10px 15px;
-  background-color: darkblue;
+  background-color: #212529;
   color: white;
   border: 1px solid black;
   margin: 20px auto;
@@ -144,7 +144,7 @@ button:hover {
   cursor: pointer;
   background-color: white;
   color: darkblue;
-}
+} */
 
 /* LOGIN FORM STYLING  */
 
@@ -247,7 +247,7 @@ input {
   margin-bottom: 20px;
 }
 
-.signup-container button {
+/* .signup-container button {
   padding: 10px 15px;
   background-color: rgb(70, 153, 179);
   color: white;
@@ -259,7 +259,7 @@ input {
   cursor: pointer;
   background-color: white;
   color: rgb(70, 153, 179);
-}
+} */
 
 .signup-page-container {
   margin-top: 50px;
@@ -268,6 +268,23 @@ input {
 }
 
 /* Friends List Styling */
+
+/* .username-greeting {
+  border: 1px solid rgba(11, 226, 11, 0.158);
+  padding: 10px;
+  max-width: 200px;
+  border-radius: 50px;
+
+  background: rgba(0, 190, 0, 0.904);
+  color: white;
+  font-weight: 200;
+  font-size: 1.0rem;
+  justify-self: flex-end;
+}
+
+.username-greeting p {
+  margin: 0px;
+} */
 
 .username-greeting {
   border: 1px solid rgba(11, 226, 11, 0.158);
@@ -278,7 +295,7 @@ input {
   background: rgba(0, 190, 0, 0.904);
   color: white;
   font-weight: 200;
-  font-size: 1.0rem;
+  font-size: 1rem;
   justify-self: flex-end;
 }
 
@@ -294,7 +311,34 @@ input {
   margin: auto;
 }
 .friends-list-heading h1 {
-  color: #C0C0C0;
+  color: #c0c0c0;
+}
+
+.friends-list-heading button {
+  height: 60px;
+}
+
+.list-of-friends {
+  max-width: 900px;
+  display: flex;
+  /* border: 1px solid black; */
+  /* background: rgba(255, 255, 255, 0.041); */
+  border-radius: 5px;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  padding: 5px;
+}
+
+.friends-list-heading {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 900px;
+  margin: auto;
+}
+.friends-list-heading h1 {
+  color: #c0c0c0;
 }
 
 .friends-list-heading button {

@@ -77,6 +77,15 @@ function NavBar(props) {
                     Log In <AccountBox />
                   </Button>
                 </ListItemText>
+                <ListItemText inset>
+                  <Button
+                    onClick={props.logout}
+                    color="inherit"
+                    variant="title"
+                  >
+                    Log Out
+                  </Button>
+                </ListItemText>
               </ListItem>
             </List>
           </Toolbar>

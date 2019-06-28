@@ -81,7 +81,7 @@ export const addFriend = newFriend => dispatch => {
       dispatch({ type: ADD_FRIEND, payload: res.data.friends });
     })
     .catch(err => {
-      console.log(err, newFriend);
+      // console.log(err, newFriend);
       dispatch({ type: ADD_FRIEND_FAILURE, payload: err.response });
     });
 };
@@ -120,7 +120,7 @@ export const register = creds => dispatch => {
   return axios
     .post("https://tom-my-top-nine.herokuapp.com/auth/register", creds)
     .then(res => {
-      console.log(res.data, "SUCCESFUL REGISTER");
+      console.log(res.data.id, "SUCCESFUL REGISTER");
       localStorage.setItem("token", res.data.password);
       localStorage.setItem("currentUser", res.data.id);
       dispatch({ type: REGISTER_SUCCESS, payload: res.data });
