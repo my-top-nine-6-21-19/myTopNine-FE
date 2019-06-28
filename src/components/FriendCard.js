@@ -5,28 +5,8 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-// export class FriendCard extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <div className="card">
-//           <div className="image">
-//           <img src="https://cdn.pixabay.com/photo/2017/01/31/08/42/comic-characters-2023311_640.png"></img>
-//           </div>
-//           <div className="card-body">
-//             <h1>{this.props.friend.name}</h1>
-//             <h4 className="card-rank">{this.props.friend.rank}</h4>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default FriendCard;
 
 const useStyles = makeStyles({
   card: {
@@ -56,7 +36,7 @@ const useStyles = makeStyles({
     margin: "15px 0"
   }
 });
-
+// <img src="image.png" onError="this.onerror=null;this.src='/images/noimage.gif';" />
 export default function FriendCard(props) {
   const classes = useStyles();
 

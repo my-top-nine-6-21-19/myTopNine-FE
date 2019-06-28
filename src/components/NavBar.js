@@ -50,7 +50,7 @@ function NavBar(props) {
                     component={Link}
                     to="/"
                     color="inherit"
-                    variant="title"
+                    // variant="title"
                   >
                     My Top Nine <Home />
                   </Button>
@@ -61,7 +61,7 @@ function NavBar(props) {
                     component={Link}
                     to="/add-friend"
                     color="inherit"
-                    variant="title"
+                    // variant="title"
                   >
                     Add New Friend <Book />
                   </Button>
@@ -72,7 +72,7 @@ function NavBar(props) {
                     component={Link}
                     to="/login"
                     color="inherit"
-                    variant="title"
+                    // variant="title"
                   >
                     Log In <AccountBox />
                   </Button>
@@ -81,7 +81,7 @@ function NavBar(props) {
                   <Button
                     onClick={props.logout}
                     color="inherit"
-                    variant="title"
+                    // variant="title"
                   >
                     Log Out
                   </Button>

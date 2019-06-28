@@ -8,10 +8,7 @@
   margin-top: 70px;
 }
 
-.friends-wrapper {
-  width: 100%;
-  margin-top: 50px;
-}
+
 
 /* NAV BAR STYLING  */
 .navbar {
@@ -269,6 +266,22 @@ input {
 
 /* FriendsList Component */
 
+.friends-wrapper {
+  width: 100%;
+  margin-top: 80px;
+}
+
+.friends-list-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  margin: 20px auto;
+}
+.friends-list-heading h1 {
+  color: #212121;
+}
+
 .list-of-friends {
   max-width: 900px;
   display: flex;
@@ -281,16 +294,6 @@ input {
   padding: 5px;
 }
 
-.friends-list-heading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 900px;
-  margin: auto;
-}
-.friends-list-heading h1 {
-  color: #212121;
-}
 
 /* FriendPage Component */
 
@@ -301,7 +304,7 @@ input {
 }
 
 .fp-details-view {
-  width: 70%;
+  max-width: 1200px;
   margin:  2rem auto;
   border: 15px solid black;
   border-radius: 5px;
@@ -336,6 +339,10 @@ box-shadow: 10px 10px 19px -10px rgba(0, 0, 0, 0.829);
  align-items: center;
 }
 
+.fp-heading-icons {
+ display: flex;
+}
+
 .fp-details-body {
   display: flex;
   width: 80%;
@@ -348,6 +355,7 @@ box-shadow: 10px 10px 19px -10px rgba(0, 0, 0, 0.829);
 
 .fp-details-body p {
   font-size: 1.2rem;
+  word-wrap: break-word;
 }
 
 .fp-details-left {
