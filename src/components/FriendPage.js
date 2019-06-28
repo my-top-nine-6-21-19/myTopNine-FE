@@ -20,7 +20,8 @@ export class FriendPage extends Component {
       description: "",
       email: "",
       address: "",
-      id: ""
+      id: "",
+      picture: ""
     }
   };
   componentDidMount() {
@@ -88,6 +89,7 @@ export class FriendPage extends Component {
             <p>Description: {this.state.friend.description}</p>
             <p>Email: {this.state.friend.email}</p>
             <p>Address: {this.state.friend.address}</p>
+            <p>Picture: {this.state.friend.picture}</p>
           </div>
 
           <div>
@@ -261,6 +263,13 @@ export class FriendPage extends Component {
               autoComplete="picture"
               autoFocus
             />
+            <label>Picture URL</label>
+            <input
+              name="picture"
+              onChange={this.handleChange}
+              type="text"
+              value={this.state.updatedFriend.picture}
+            />
           </form>
 
           <Button
@@ -277,7 +286,6 @@ export class FriendPage extends Component {
               this.setState(() => ({ isUpdating: !this.state.isUpdating }))
             }
           >
-            {" "}
             Cancel
           </Button>
         </div>

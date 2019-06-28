@@ -269,6 +269,15 @@ export class AddFriend extends Component {
               autoFocus
             />
           </div>
+          <div className="add-input">
+            <input
+              placeholder="Your friend's Picture"
+              name="picture"
+              value={this.state.picture}
+              className="login-input"
+              onChange={this.handleChanges}
+            />
+          </div>
           <div>
             <div>
               {/* <button className="btn-login shd" onClick={this.addFriend}>
