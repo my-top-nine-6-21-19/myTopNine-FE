@@ -285,9 +285,9 @@ export class AddFriend extends Component {
               {/* <button className="btn-login shd" onClick={this.addFriend}>
                 Make A Friend
               </button> */}
-              <Tooltip onClick={this.addFriend} title="Add" aria-label="Add">
+              {/* <Tooltip onClick={this.addFriend} title="Add" aria-label="Add">
                 <AddIcon />
-              </Tooltip>
+              </Tooltip> */}
               <AddButton addFriend={this.addFriend} />
             </div>
           </div>
