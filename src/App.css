@@ -332,13 +332,13 @@ input {
 
 .friends-list-heading {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   max-width: 900px;
   margin: auto;
 }
 .friends-list-heading h1 {
-  color: #c0c0c0;
+  color: #212121;
 }
 
 .friends-list-heading button {

@@ -138,7 +138,6 @@ export class FriendPage extends Component {
         <div>
           <p>Update Friend</p>
           <form>
-            <label>Name</label>
             {/* <input
               name="name"
               onChange={this.handleChange}
@@ -159,7 +158,6 @@ export class FriendPage extends Component {
               autoFocus
             />
 
-            <label>Rank</label>
             {/* <input
               name="rank"
               type="text"
@@ -180,7 +178,6 @@ export class FriendPage extends Component {
               autoFocus
             />
 
-            <label>Description</label>
             {/* <input
               name="description"
               onChange={this.handleChange}
@@ -201,7 +198,6 @@ export class FriendPage extends Component {
               autoFocus
             />
 
-            <label>Email</label>
             {/* <input
               name="email"
               onChange={this.handleChange}
@@ -222,7 +218,6 @@ export class FriendPage extends Component {
               autoFocus
             />
 
-            <label>Address</label>
             {/* <input
               name="address"
               onChange={this.handleChange}
@@ -243,7 +238,6 @@ export class FriendPage extends Component {
               autoFocus
             />
 
-            <label>Picture</label>
             {/* <input
               name="picture"
               onChange={this.handleChange}
@@ -263,13 +257,13 @@ export class FriendPage extends Component {
               autoComplete="picture"
               autoFocus
             />
-            <label>Picture URL</label>
+            {/* <label>Picture URL</label>
             <input
               name="picture"
               onChange={this.handleChange}
               type="text"
               value={this.state.updatedFriend.picture}
-            />
+            /> */}
           </form>
 
           <Button
