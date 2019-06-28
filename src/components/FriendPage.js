@@ -92,7 +92,7 @@ export class FriendPage extends Component {
           <img src={this.state.friend.picture} alt="avatar" />
           <div className="fp-heading-right">
           <h1>{this.state.friend.name}</h1>
-          <div>
+          <div className="fp-heading-icons">
           <Tooltip title="Edit">
               <IconButton
                 aria-label="Edit"

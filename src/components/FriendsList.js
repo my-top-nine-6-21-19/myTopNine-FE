@@ -29,41 +29,13 @@ class FriendsList extends React.Component {
           </ButtonGroup>
         </Grid> */}
         <Dropdown setRanked={this.setRankedTrue} />
-        {/* <button
-          onClick={() => this.setState(() => ({ ranked: !this.state.ranked }))}
-        >
-          {this.state.ranked ? "All Friends" : "Top 9 Friends"}
-        </button> */}
 
-        {/* Logic for Header with Title, Toggle Button, Successfull Greeting */}
 
-        {this.props.loginMessage ? (
-          <div className="friends-list-heading">
-            {/* <button
-              onClick={() =>
-                this.setState(() => ({ ranked: !this.state.ranked }))
-              }
-            >
-              {this.state.ranked ? "Switch to All Friends" : "Switch to Top 9"}
-            </button> */}
+        {/* Logic for Header with Title,  */}
+
+        <div className="friends-list-heading">
             <h1>{this.state.ranked ? "Top 9 Friends" : "All Friends"}</h1>
-            <div className="username-greeting">
-              <p>{this.props.loginMessage}</p>
-            </div>
-          </div>
-        ) : (
-          <div className="friends-list-heading">
-            {/* <button
-              onClick={() =>
-                this.setState(() => ({ ranked: !this.state.ranked }))
-              }
-            >
-              {this.state.ranked ? "Switch to All Friends" : "Switch to Top 9"}
-            </button> */}
-            <h1>{this.state.ranked ? "Top 9 Friends" : "All Friends"}</h1>
-            <div />
-          </div>
-        )}
+        </div>
 
         {/* Loading... or Render Friends List */}
         {this.props.loading ||
@@ -117,6 +89,7 @@ class FriendsList extends React.Component {
           </div>
         )}
       </div>
+
     );
   }
 
