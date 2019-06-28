@@ -87,7 +87,7 @@ export class Login extends Component {
           <div className="signup-container">
             <h1 className="signup-title">Signup</h1>
             <form>
-              <label>Username</label>
+              {/* <label>Username</label>
               <input
                 name="username"
                 onChange={this.handleChange}
@@ -101,6 +101,30 @@ export class Login extends Component {
                 type="password"
                 onChange={this.handleChange}
                 placeholder="Enter your password"
+              /> */}
+              <TextField
+                onChange={this.handleChange}
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
+                autoFocus
+              />
+              <TextField
+                onChange={this.handleChange}
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
               />
               {/* <button onClick={this.register} type="submit">
                 {this.props.registering ? <p>Loading...</p> : "Sign Up"}

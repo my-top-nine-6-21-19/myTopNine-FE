@@ -166,6 +166,7 @@ export class AddFriend extends Component {
         <form className="friend-form">
           <div className="add-input">
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChanges}
               value={this.state.name}
               variant="outlined"
@@ -178,9 +179,9 @@ export class AddFriend extends Component {
               autoComplete="name"
               autoFocus
             />
-          </div>
-          <div className="add-input">
+
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChanges}
               value={this.state.rank}
               variant="outlined"
@@ -193,9 +194,9 @@ export class AddFriend extends Component {
               autoComplete="rank"
               autoFocus
             />
-          </div>
-          <div className="add-input">
+
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChanges}
               value={this.state.email}
               variant="outlined"
@@ -208,9 +209,9 @@ export class AddFriend extends Component {
               autoComplete="email"
               autoFocus
             />
-          </div>
-          <div className="add-input">
+
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChanges}
               value={this.state.phone}
               variant="outlined"
@@ -223,9 +224,9 @@ export class AddFriend extends Component {
               autoComplete="phone"
               autoFocus
             />
-          </div>
-          <div className="add-input">
+
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChanges}
               value={this.state.address}
               variant="outlined"
@@ -238,9 +239,9 @@ export class AddFriend extends Component {
               autoComplete="address"
               autoFocus
             />
-          </div>
-          <div className="add-input">
+
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChanges}
               value={this.state.description}
               variant="outlined"
@@ -253,9 +254,9 @@ export class AddFriend extends Component {
               autoComplete="description"
               autoFocus
             />
-          </div>
-          <div className="add-input">
+
             <TextField
+              style={{ width: 400, margin: 25 }}
               onChange={this.handleChanges}
               value={this.state.picture}
               variant="outlined"
@@ -269,7 +270,7 @@ export class AddFriend extends Component {
               autoFocus
             />
           </div>
-          <div className="add-input">
+          {/* <div className="add-input">
             <input
               placeholder="Your friend's Picture"
               name="picture"
@@ -277,7 +278,7 @@ export class AddFriend extends Component {
               className="login-input"
               onChange={this.handleChanges}
             />
-          </div>
+          </div> */}
           <div>
             <div>
               {/* <button className="btn-login shd" onClick={this.addFriend}>
