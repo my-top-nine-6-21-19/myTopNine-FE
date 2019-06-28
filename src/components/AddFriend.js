@@ -8,6 +8,7 @@ import Fab from "@material-ui/core/Fab";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import { withStyles } from "@material-ui/styles";
+import AddButton from "./AddButton";
 
 const styles = makeStyles(theme => ({
   fab: {
@@ -284,9 +285,10 @@ export class AddFriend extends Component {
               {/* <button className="btn-login shd" onClick={this.addFriend}>
                 Make A Friend
               </button> */}
-              <Tooltip onClick={this.addFriend} title="Add" aria-label="Add">
+              {/* <Tooltip onClick={this.addFriend} title="Add" aria-label="Add">
                 <AddIcon />
-              </Tooltip>
+              </Tooltip> */}
+              <AddButton addFriend={this.addFriend} />
             </div>
           </div>
         </form>
