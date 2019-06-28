@@ -8,21 +8,16 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 export class Login extends Component {
   state = {
-    username: "",
-    password: "",
+    user: {
+      username: "",
+      password: ""
+    },
     showLog: true
   };
   render() {
     return (
       <div>
         <h1>{this.state.showLog ? "Welcome Back!" : "Join Us Today!"}</h1>
-        <button
-          onClick={() =>
-            this.setState(() => ({ showLog: !this.state.showLog }))
-          }
-        >
-          {this.state.showLog ? "Sign Up Now" : "Log In"}
-        </button>
 
         {this.state.showLog ? (
           // <SignInSide />
@@ -30,15 +25,15 @@ export class Login extends Component {
           <div className="login-container">
             <h1 className="login-title">Login</h1>
             <form>
-              <label>Username</label>
+              {/* <label>Username</label>
               <input
                 name="username"
                 onChange={this.handleChange}
                 type="text"
                 placeholder="Enter your username"
-              />
+              /> */}
 
-              {/* <TextField
+              <TextField
                 onChange={this.handleChange}
                 variant="outlined"
                 margin="normal"
@@ -61,20 +56,30 @@ export class Login extends Component {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              /> */}
+              />
 
-              <label>Password</label>
+              {/* <label>Password</label>
               <input
                 name="password"
                 type="password"
                 onChange={this.handleChange}
                 placeholder="Enter your password"
-              />
+              /> */}
               {/* <button onClick={this.login} type="submit">
                 {this.props.loggingIn ? <p>Loading...</p> : "Login"}
               </button> */}
               <Button variant="outlined" color="inherit" onClick={this.login}>
                 {this.props.loggingIn ? <p>Loading...</p> : "Login"}
+              </Button>
+              <p>Or</p>
+              <Button
+                variant="outlined"
+                color="inherit"
+                onClick={() =>
+                  this.setState(() => ({ showLog: !this.state.showLog }))
+                }
+              >
+                {this.state.showLog ? "Sign Up Now" : "Log In"}
               </Button>
             </form>
           </div>
@@ -107,6 +112,16 @@ export class Login extends Component {
               >
                 {this.props.registering ? <p>Loading...</p> : "Sign Up"}
               </Button>
+              <p>Or</p>
+              <Button
+                variant="outlined"
+                color="inherit"
+                onClick={() =>
+                  this.setState(() => ({ showLog: !this.state.showLog }))
+                }
+              >
+                {this.state.showLog ? "Sign Up Now" : "Log In"}
+              </Button>
             </form>
           </div>
         )}
@@ -116,13 +131,17 @@ export class Login extends Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      ...this.state,
+      user: {
+        ...this.state.user,
+        [e.target.name]: e.target.value
+      }
     });
   };
 
   login = e => {
     e.preventDefault();
-    this.props.login(this.state).then(() => this.props.history.push("/"));
+    this.props.login(this.state.user).then(() => this.props.history.push("/"));
   };
 
   logout = e => {
@@ -133,7 +152,14 @@ export class Login extends Component {
   };
   register = e => {
     e.preventDefault();
-    this.props.register(this.state).then(() => this.props.history.push("/"));
+    this.props
+      .register(this.state.user)
+      .then(
+        () => localStorage.removeItem("token"),
+        localStorage.removeItem("currentUser"),
+        this.setState(() => ({ ...this.state, showLog: true })),
+        this.props.history.push("/login")
+      );
   };
 }
 

@@ -5,6 +5,10 @@ import Loader from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import { fetchFriends, addFriend } from "../actions";
 import FriendCard from "./FriendCard";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Dropdown from "./Dropdown";
 
 class FriendsList extends React.Component {
   state = {
@@ -15,19 +19,29 @@ class FriendsList extends React.Component {
   render() {
     return (
       <div className="friends-wrapper">
-        <h1>Top 9 List</h1>
-        <button
+        {/* <Grid item xs={12}>
+          <ButtonGroup fullWidth aria-label="Full width outlined button group">
+            <Button onClick={() => this.setState(() => ({ ranked: true }))}>
+              Top 9
+            </Button>
+            <Button onClick={() => this.setState(() => ({ ranked: false }))}>
+              All Friends
+            </Button>
+          </ButtonGroup>
+        </Grid> */}
+        <Dropdown setRanked={this.setRankedTrue} />
+        {/* <button
           onClick={() => this.setState(() => ({ ranked: !this.state.ranked }))}
         >
           {this.state.ranked ? "All Friends" : "Top 9 Friends"}
-        </button>
+        </button> */}
 
         {/* Login Success Message */}
         {this.props.loginMessage ? (
           <>
-            <div className="username-greeting">
+            {/* <div className="username-greeting">
               <p>{this.props.loginMessage}</p>
-            </div>{" "}
+            </div>{" "} */}
             <h1>Top 9 List</h1>{" "}
           </>
         ) : (
@@ -35,7 +49,10 @@ class FriendsList extends React.Component {
         )}
 
         {/* Loading... or Render Friends List */}
-        {this.props.loading || !this.state.friends || !this.props.friends ? (
+        {this.props.loading ||
+        !this.state.friends ||
+        !this.props.friends ||
+        !this.props.currentUser ? (
           <div className="loader">
             <Loader type="Rings" color="#somecolor" height={150} width={150} />
           </div>
@@ -56,7 +73,7 @@ class FriendsList extends React.Component {
                       to={`/friend/${friend.id}`}
                       style={{ textDecoration: "none" }}
                     >
-                      <FriendCard friend={friend} />
+                      <FriendCard friend={friend} ranked={this.state.ranked} />
                     </Link>
                   </div>
                 );
@@ -75,7 +92,7 @@ class FriendsList extends React.Component {
                       to={`/friend/${friend.id}`}
                       style={{ textDecoration: "none" }}
                     >
-                      <FriendCard friend={friend} />
+                      <FriendCard friend={friend} ranked={this.state.ranked} />
                     </Link>
                   </div>
                 );
@@ -85,6 +102,18 @@ class FriendsList extends React.Component {
       </div>
     );
   }
+
+  setRankedTrue = (event, index) => {
+    if (index === 0) {
+      this.setState(() => ({ ranked: true }));
+    } else if (index === 1) {
+      this.setState(() => ({ ranked: false }));
+    }
+  };
+
+  setRankedFalse = () => {
+    this.setState(() => ({ ranked: false }));
+  };
 
   componentDidMount() {
     this.props.fetchFriends(this.props.currentUser);
