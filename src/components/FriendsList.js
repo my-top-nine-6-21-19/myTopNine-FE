@@ -39,13 +39,13 @@ class FriendsList extends React.Component {
 
         {this.props.loginMessage ? (
           <div className="friends-list-heading">
-            <button
+            {/* <button
               onClick={() =>
                 this.setState(() => ({ ranked: !this.state.ranked }))
               }
             >
               {this.state.ranked ? "Switch to All Friends" : "Switch to Top 9"}
-            </button>
+            </button> */}
             <h1>{this.state.ranked ? "Top 9 Friends" : "All Friends"}</h1>
             <div className="username-greeting">
               <p>{this.props.loginMessage}</p>
@@ -53,13 +53,13 @@ class FriendsList extends React.Component {
           </div>
         ) : (
           <div className="friends-list-heading">
-            <button
+            {/* <button
               onClick={() =>
                 this.setState(() => ({ ranked: !this.state.ranked }))
               }
             >
               {this.state.ranked ? "Switch to All Friends" : "Switch to Top 9"}
-            </button>
+            </button> */}
             <h1>{this.state.ranked ? "Top 9 Friends" : "All Friends"}</h1>
             <div />
           </div>
