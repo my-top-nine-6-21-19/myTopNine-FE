@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { updateFriend, deleteFriend } from "../actions";
 import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
@@ -82,24 +83,36 @@ export class FriendPage extends Component {
       return <p>Loading...</p>;
     } else if (!this.state.isUpdating) {
       return (
-        <div className="friend-page-container">
+        <div className="fp-container">
+          {/* Main Friend View (NOT UPDATING) */}
+          <div className="fp-details-view">
+            {/* Heading */}
+            <div className="fp-details-heading">
+          <img src={this.state.friend.picture} alt="avatar" />
+          <div className="fp-heading-right">
           <h1>{this.state.friend.name}</h1>
           <div>
-            <p>Rank: {this.state.friend.rank}</p>
-            <p>Description: {this.state.friend.description}</p>
-            <p>Email: {this.state.friend.email}</p>
-            <p>Address: {this.state.friend.address}</p>
-            <p>Picture: {this.state.friend.picture}</p>
-          </div>
-
-          <div>
-            {/* <button
-              onClick={() =>
-                this.deleteFriend(this.props.match.params.friendId)
-              }
-            >
-              Delete Friend
-            </button> */}
+          <Tooltip title="Edit">
+              <IconButton
+                aria-label="Edit"
+                onClick={() =>
+                  this.setState(() => ({
+                    isUpdating: !this.state.isUpdating,
+                    updatedFriend: {
+                      name: this.state.friend.name,
+                      rank: this.state.friend.rank,
+                      description: this.state.friend.description,
+                      email: this.state.friend.email,
+                      address: this.state.friend.address,
+                      id: this.state.friend.id,
+                      picture: this.state.friend.picture
+                    }
+                  }))
+                }
+              >
+                <EditIcon fontSize="large"  />
+              </IconButton>
+            </Tooltip>
             <Tooltip title="Delete">
               <IconButton
                 aria-label="Delete"
@@ -107,30 +120,29 @@ export class FriendPage extends Component {
                   this.deleteFriend(this.props.match.params.friendId)
                 }
               >
-                <DeleteIcon />
+                <DeleteIcon color='error' fontSize="large" />
               </IconButton>
             </Tooltip>
-            <Button
-              variant="outlined"
-              color="inherit"
-              onClick={() =>
-                this.setState(() => ({
-                  isUpdating: !this.state.isUpdating,
-                  updatedFriend: {
-                    name: this.state.friend.name,
-                    rank: this.state.friend.rank,
-                    description: this.state.friend.description,
-                    email: this.state.friend.email,
-                    address: this.state.friend.address,
-                    id: this.state.friend.id,
-                    picture: this.state.friend.picture
-                  }
-                }))
-              }
-            >
-              Update Friend
-            </Button>
+
           </div>
+
+          </div>
+          {/* Details */}
+          </div>
+          <div className="fp-details-body">
+            <div className="fp-details-left">
+              <p><span>Rank:</span> {this.state.friend.rank}</p>
+              <p><span>Email:</span> {this.state.friend.email}</p>
+              <p><span>Address:</span> {this.state.friend.address}</p>
+              <p><span>Phone:</span> {this.state.friend.phone}</p>
+            </div>
+            <div className="fp-details-right">
+              <p><span>Description:</span> {this.state.friend.description}</p>
+              <p><span>Picture:</span> {this.state.friend.picture}</p>
+            </div>
+          </div>
+        </div>
+
         </div>
       );
     } else {
